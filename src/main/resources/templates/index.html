@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>방명록</title>
+</head>
+<body>
+<h1>방명록</h1>
+<form method="post" action="/add">
+    이름: <input type="text" name="name" required><br>
+    메시지: <input type="text" name="message" required><br>
+    <button type="submit">등록</button>
+</form>
+<hr>
+<ul>
+    
+     <li th:each="entry : ${entries}">
+        <strong th:text="${entry.name}">기본이름</strong>:
+        <span th:text="${entry.message}">기본메시지</span>
+    </li>
+    
+</ul>
+</body>
+</html>
